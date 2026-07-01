@@ -416,7 +416,7 @@
       display: flex;
       gap: 18px;
       width: max-content;
-      animation: scroll-left 25s linear infinite;
+      animation: scroll-left 35s linear infinite;
     }
 
     .carousel-left-to-right {
@@ -470,6 +470,27 @@
       transform: translateY(-5px);
       border-color: var(--yellow);
       box-shadow: 0 0 25px rgba(255, 212, 0, 0.25);
+    }
+
+    .story-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story-overlay-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 12px 10px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 40%, transparent);
+      color: var(--text-white);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-align: center;
+      z-index: 2;
     }
 
     .story-header {
@@ -1219,11 +1240,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 1]</span>
-              <p class="placeholder-caption">Leitura de Pé de Apoio</p>
-            </div>
+            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image">
+            <div class="story-overlay-caption">Leitura de Pé de Apoio</div>
           </div>
           <!-- Item 2 -->
           <div class="story-card">
@@ -1235,11 +1253,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 2]</span>
-              <p class="placeholder-caption">Exercícios de Reação</p>
-            </div>
+            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image">
+            <div class="story-overlay-caption">Exercícios de Reação</div>
           </div>
           <!-- Item 3 -->
           <div class="story-card">
@@ -1251,11 +1266,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 3]</span>
-              <p class="placeholder-caption">Plano de 7 Dias</p>
-            </div>
+            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image">
+            <div class="story-overlay-caption">Plano de 7 Dias</div>
           </div>
           <!-- Item 4 -->
           <div class="story-card">
@@ -1267,11 +1279,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 4]</span>
-              <p class="placeholder-caption">Posicionamento de Trave</p>
-            </div>
+            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image">
+            <div class="story-overlay-caption">Posicionamento de Trave</div>
           </div>
           <!-- Item 5 -->
           <div class="story-card">
@@ -1283,11 +1292,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 5]</span>
-              <p class="placeholder-caption">Guia Mental Decisivo</p>
-            </div>
+            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image">
+            <div class="story-overlay-caption">Guia Mental Decisivo</div>
           </div>
           <!-- Item 6 -->
           <div class="story-card">
@@ -1299,11 +1305,60 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 6]</span>
-              <p class="placeholder-caption">Impulsão e Explosão</p>
+            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image">
+            <div class="story-overlay-caption">Impulsão e Explosão</div>
+          </div>
+          <!-- Item 7 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
             </div>
+            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image">
+            <div class="story-overlay-caption">Leitura do Batedor</div>
+          </div>
+          <!-- Item 8 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image">
+            <div class="story-overlay-caption">Tempo de Reação</div>
+          </div>
+          <!-- Item 9 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image">
+            <div class="story-overlay-caption">Explosão Lateral</div>
+          </div>
+          <!-- Item 10 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image">
+            <div class="story-overlay-caption">Presença de Área</div>
           </div>
 
           <!-- DUPLICATED FOR INFINITE LOOP -->
@@ -1318,11 +1373,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 1]</span>
-              <p class="placeholder-caption">Leitura de Pé de Apoio</p>
-            </div>
+            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image">
+            <div class="story-overlay-caption">Leitura de Pé de Apoio</div>
           </div>
           <!-- Item 2 -->
           <div class="story-card">
@@ -1334,11 +1386,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 2]</span>
-              <p class="placeholder-caption">Exercícios de Reação</p>
-            </div>
+            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image">
+            <div class="story-overlay-caption">Exercícios de Reação</div>
           </div>
           <!-- Item 3 -->
           <div class="story-card">
@@ -1350,11 +1399,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 3]</span>
-              <p class="placeholder-caption">Plano de 7 Dias</p>
-            </div>
+            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image">
+            <div class="story-overlay-caption">Plano de 7 Dias</div>
           </div>
           <!-- Item 4 -->
           <div class="story-card">
@@ -1366,11 +1412,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 4]</span>
-              <p class="placeholder-caption">Posicionamento de Trave</p>
-            </div>
+            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image">
+            <div class="story-overlay-caption">Posicionamento de Trave</div>
           </div>
           <!-- Item 5 -->
           <div class="story-card">
@@ -1382,11 +1425,8 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 5]</span>
-              <p class="placeholder-caption">Guia Mental Decisivo</p>
-            </div>
+            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image">
+            <div class="story-overlay-caption">Guia Mental Decisivo</div>
           </div>
           <!-- Item 6 -->
           <div class="story-card">
@@ -1398,11 +1438,60 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <div class="story-content-placeholder">
-              <span class="placeholder-icon">📱</span>
-              <span class="placeholder-text">[IMAGEM STORY 6]</span>
-              <p class="placeholder-caption">Impulsão e Explosão</p>
+            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image">
+            <div class="story-overlay-caption">Impulsão e Explosão</div>
+          </div>
+          <!-- Item 7 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
             </div>
+            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image">
+            <div class="story-overlay-caption">Leitura do Batedor</div>
+          </div>
+          <!-- Item 8 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image">
+            <div class="story-overlay-caption">Tempo de Reação</div>
+          </div>
+          <!-- Item 9 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image">
+            <div class="story-overlay-caption">Explosão Lateral</div>
+          </div>
+          <!-- Item 10 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image">
+            <div class="story-overlay-caption">Presença de Área</div>
           </div>
         </div>
       </div>
