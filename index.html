@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método Paredão nos Pênaltis — Pare de adivinhar o canto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06120D;
+      --bg-alt: #081B13;
+      --card: #0D281C;
+      --border: #1C4632;
+      --yellow: #FFD400;
+      --yellow-hover: #FFE15C;
+      --text-white: #FFFFFF;
+      --text-support: #B7C8BD;
+      --green: #22C55E;
+      --red: #FF4D4D;
+      --radius: 16px;
+      --shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      /* Subtle field grid pattern */
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(28, 70, 50, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(28, 70, 50, 0.15) 0px, transparent 50%),
+        linear-gradient(rgba(28, 70, 50, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 70, 50, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .wrap-narrow {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .kicker {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 700;
+    }
+
+    h2.title {
+      font-size: clamp(28px, 4.5vw, 42px);
+      margin-bottom: 12px;
+      color: var(--text-white);
+      line-height: 1.05;
+    }
+
+    .lede {
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: var(--text-support);
+      margin-bottom: 30px;
+      max-width: 680px;
+    }
+
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(28, 70, 50, 0.2);
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    /* Buttons */
+    .cta-button {
+      background: var(--yellow);
+      color: var(--bg);
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(15px, 1.8vw, 18px);
+      font-weight: 400;
+      border-radius: 999px;
+      padding: 16px 32px;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 0 rgba(255, 212, 0, 0);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      background: var(--yellow-hover);
+      box-shadow: 0 14px 35px rgba(255, 212, 0, 0.35);
+    }
+
+    .cta-button-secondary {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text-support);
+    }
+
+    .cta-button-secondary:hover {
+      background: rgba(255, 212, 0, 0.05);
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    .section-cta-wrapper {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.25s ease;
+      padding: 24px;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--yellow);
+      box-shadow: 0 12px 28px rgba(255, 212, 0, 0.12);
+    }
+
+    /* Header */
+    .header {
+      padding: 16px 0;
+      background: rgba(6, 18, 13, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 20px;
+      color: var(--text-white);
+      letter-spacing: 0.05em;
+    }
+
+    .header-subtext {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-support);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 24px 0 40px;
+      background: radial-gradient(circle at 50% 0%, rgba(34, 197, 94, 0.08), transparent 60%), var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5.5vw, 56px);
+      margin-bottom: 12px;
+      line-height: 1.05;
+      color: var(--text-white);
+    }
+
+    .hero-title .yellow-text {
+      color: var(--yellow);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text-support);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .hero-audience {
+      display: none;
+    }
+
+    .hero-mockup-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-mockup {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 15px 35px rgba(28, 70, 50, 0.25));
+    }
+
+    .hero-cta {
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .hero-microcopy {
+      font-family: 'Space Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-support);
+      margin-top: 8px;
+    }
+
+    /* Pain Section */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .pain-card .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .pain-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text-white);
+      text-transform: none;
+    }
+
+    .pain-card p {
+      font-size: 13.5px;
+      color: var(--text-support);
+      line-height: 1.45;
+    }
+
+    .pain-impact {
+      margin-top: 30px;
+      padding: 16px;
+      border-left: 4px solid var(--yellow);
+      background: rgba(255, 212, 0, 0.03);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 15px;
+      color: var(--text-support);
+      text-align: center;
+    }
+
+    .pain-impact b {
+      color: var(--yellow);
+    }
+
+    /* Identification (Para quem é) */
+    .id-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .id-item {
+      background: rgba(13, 40, 28, 0.4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-size: 14.5px;
+      color: var(--text-support);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .id-item .check {
+      color: var(--green);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Belief Break */
+    .belief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .belief-col {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .belief-col h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .belief-col.adivinha h3 {
+      color: var(--red);
+    }
+
+    .belief-col.treina h3 {
+      color: var(--green);
+    }
+
+    .belief-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .belief-list li {
+      font-size: 14px;
+      color: var(--text-support);
+      line-height: 1.4;
+      display: flex;
+      gap: 8px;
+    }
+
+    .belief-final {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--text-support);
+    }
+
+    .belief-final b {
+      color: var(--yellow);
+    }
+
+    /* Content Gallery (Section 5) */
+    .content-gallery-title {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    /* Carousel General & Tracks */
+    .carousel-wrapper {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+      padding: 15px 0;
+    }
+
+    .carousel-track-wrapper {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-right-to-left {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: scroll-left 25s linear infinite;
+    }
+
+    .carousel-left-to-right {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: scroll-right 40s linear infinite;
+    }
+
+    .carousel-track-wrapper:hover .carousel-right-to-left,
+    .carousel-track-wrapper:hover .carousel-left-to-right {
+      animation-play-state: paused;
+    }
+
+    /* Keyframes with gap offsets */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50% - 9px));
+      }
+    }
+
+    @keyframes scroll-right {
+      0% {
+        transform: translateX(calc(-50% - 9px));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* Story Card (9:16 Aspect Ratio) */
+    .story-card {
+      width: 220px;
+      aspect-ratio: 9/16;
+      flex-shrink: 0;
+      background: #040d0a;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--yellow);
+      box-shadow: 0 0 25px rgba(255, 212, 0, 0.25);
+    }
+
+    .story-header {
+      padding: 10px 12px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    }
+
+    .story-progress-bar {
+      height: 2px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    .story-progress-fill {
+      height: 100%;
+      background: #FFFFFF;
+      width: 75%;
+      border-radius: 2px;
+    }
+
+    .story-profile {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .story-avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--yellow);
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+    }
+
+    .story-username {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .story-time {
+      font-size: 9px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .story-content-placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      background: radial-gradient(circle at center, #0D281C 0%, #06120D 100%);
+    }
+
+    .placeholder-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .placeholder-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 8px;
+    }
+
+    .placeholder-caption {
+      font-size: 13.5px;
+      color: var(--text-support);
+      font-weight: 500;
+    }
+
+    /* Section 7 (O que observar) */
+    .observe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .observe-col {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .observe-col h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 18px;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .observe-col h3.obs-title {
+      color: var(--yellow);
+    }
+
+    .observe-col h3.evt-title {
+      color: var(--red);
+    }
+
+    .observe-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .observe-list li {
+      font-size: 14.5px;
+      color: var(--text-support);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Bonus Lines (Section 8) */
+    .bonus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .bonus-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 24px;
+      border-radius: 12px;
+      gap: 20px;
+      transition: all 0.25s ease;
+    }
+
+    .bonus-line:hover {
+      border-color: var(--yellow);
+      transform: translateX(4px);
+    }
+
+    .bonus-line-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .bonus-line-icon {
+      font-size: 24px;
+    }
+
+    .bonus-line-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 4px;
+    }
+
+    .bonus-line-text p {
+      font-size: 13.5px;
+      color: var(--text-support);
+      margin: 0;
+    }
+
+    .bonus-line-right {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      text-align: right;
+      white-space: nowrap;
+      color: var(--text-support);
+    }
+
+    .bonus-line-right .strike {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .bonus-line-right b {
+      color: var(--yellow);
+    }
+
+    .bonus-value-total {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-support);
+    }
+
+    .bonus-value-total b {
+      color: var(--yellow);
+    }
+
+    /* Feedbacks Carousel (Section 9) */
+    .feedback-item {
+      width: 290px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .feedback-item:hover {
+      border-color: var(--yellow);
+      transform: translateY(-3px);
+    }
+
+    .feedback-stars {
+      color: var(--yellow);
+      font-size: 13px;
+    }
+
+    .feedback-user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .feedback-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .feedback-role {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--green);
+    }
+
+    .feedback-text {
+      font-size: 13.5px;
+      color: var(--text-support);
+      font-style: italic;
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Plans (Section 10) */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 30px;
+      align-items: stretch;
+      max-width: 860px;
+      margin: 30px auto;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border);
+    }
+
+    .premium-card {
+      border: 2px solid var(--yellow);
+      box-shadow: 0 0 35px rgba(255, 212, 0, 0.22);
+      transform: scale(1.03);
+      background: linear-gradient(180deg, rgba(255, 212, 0, 0.03), var(--card) 40%);
+    }
+
+    .premium-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 0 45px rgba(255, 212, 0, 0.35);
+    }
+
+    .badge-recommend {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--yellow);
+      color: var(--bg);
+      font-family: 'Anton', sans-serif;
+      font-size: 12px;
+      padding: 6px 18px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-weight: 400;
+    }
+
+    .plan-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--text-support);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 8px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .plan-price {
+      font-family: 'Anton', sans-serif;
+      font-size: 52px;
+      color: var(--text-white);
+      line-height: 1;
+    }
+
+    .plan-price small {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-support);
+      font-weight: 400;
+    }
+
+    .plan-desc {
+      font-size: 14px;
+      color: var(--text-support);
+      margin-bottom: 30px;
+      line-height: 1.45;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .plan-card ul li {
+      font-size: 14px;
+      color: var(--text-support);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .plan-card ul li.no {
+      color: rgba(183, 200, 189, 0.4);
+      text-decoration: line-through;
+    }
+
+    .plan-card ul li .yes {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .plan-card ul li .no-mark {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    .plan-premium-bonuses-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--yellow);
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-premium-bonuses {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .plan-premium-bonuses div {
+      font-size: 13px;
+      color: var(--text-support);
+    }
+
+    .plan-premium-bonuses b {
+      color: var(--yellow);
+    }
+
+    .plan-difference-text {
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--yellow);
+      margin-bottom: 24px;
+    }
+
+    .plans-bottom-text {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-support);
+    }
+
+    /* Guarantee */
+    .guarantee-box {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: var(--radius);
+    }
+
+    .guarantee-box .shield {
+      font-size: 44px;
+      flex: none;
+    }
+
+    .guarantee-box h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .guarantee-box p {
+      color: var(--text-support);
+      font-size: 14.5px;
+      margin: 0;
+    }
+
+    /* FAQ */
+    .faq-list {
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(28, 70, 50, 0.3);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 4px;
+      font-size: 15.5px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-q .plus {
+      font-family: 'Space Mono', monospace;
+      color: var(--yellow);
+      font-size: 18px;
+      transition: transform .2s;
+    }
+
+    .faq-item.open .plus {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .25s ease;
+    }
+
+    .faq-a p {
+      margin: 0 4px 18px;
+      color: var(--text-support);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      background: radial-gradient(circle at 50% 100%, rgba(255, 212, 0, 0.08), transparent 60%), var(--bg-alt);
+      padding: 80px 0;
+    }
+
+    .final-cta h2 {
+      max-width: 800px;
+      margin: 0 auto 16px;
+    }
+
+    .final-cta p {
+      max-width: 600px;
+      margin: 0 auto 35px;
+      color: var(--text-support);
+      font-size: 16px;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-support);
+      background: var(--bg);
+      border-top: 1px solid rgba(28, 70, 50, 0.3);
+    }
+
+    .footer-microcopy {
+      font-family: 'Space Mono', monospace;
+      font-size: 11.5px;
+      margin-top: 8px;
+      color: var(--green);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero {
+        padding: 20px 0 30px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+      }
+      .hero-content {
+        align-items: center;
+      }
+      .hero-mockup-wrapper {
+        margin-top: 16px;
+      }
+      .belief-grid {
+        grid-template-columns: 1fr;
+      }
+      .observe-grid {
+        grid-template-columns: 1fr;
+      }
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+      .premium-card {
+        transform: none;
+      }
+      .bonus-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .bonus-line-right {
+        text-align: left;
+      }
+      .guarantee-box {
+        flex-direction: column;
+        text-align: center;
+      }
+      section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap header-flex">
+      <div class="logo">MÉTODO PAREDÃO NOS PÊNALTIS</div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO 1 — HERO / PRIMEIRA DOBRA -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="yellow-text">+50 TREINOS DE PÊNALTI</span><br>
+          PARA <span class="yellow-text">PARAR DE ADIVINHAR O CANTO</span>
+        </h1>
+        <p class="hero-subtitle">Se hoje você escolhe um lado no chute e torce para dar certo, está na hora de treinar do jeito certo. Aprenda exercícios práticos para melhorar sua leitura do batedor, seu tempo de reação e sua presença na cobrança.</p>
+      </div>
+      <div class="hero-mockup-wrapper">
+        <img src="mockup.png" alt="Método Paredão nos Pênaltis" class="hero-mockup">
+        <a href="#planos" class="cta-button hero-cta">QUERO TREINAR PARA PEGAR MAIS PÊNALTIS</a>
+        <div class="hero-microcopy">Acesso imediato • Planos a partir de R$9,90</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2 — DOR / IDENTIFICAÇÃO -->
+  <section>
+    <div class="wrap">
+      <span class="kicker">SE VOCÊ É GOLEIRO, VOCÊ SABE</span>
+      <h2 class="title">PÊNALTI DÓI MAIS QUANDO VOCÊ SENTE QUE PODIA TER PEGO.</h2>
+      
+      <div class="pain-grid">
+        <div class="pain-card card">
+          <span class="icon">🎯</span>
+          <h3>Caiu cedo demais?</h3>
+          <p>O batedor esperou seu movimento e bateu no outro canto.</p>
+        </div>
+        <div class="pain-card card">
+          <span class="icon">😶</span>
+          <h3>Tomou no meio?</h3>
+          <p>Você pulou e viu a bola entrar onde você estava.</p>
+        </div>
+        <div class="pain-card card">
+          <span class="icon">👟</span>
+          <h3>Foi no chute?</h3>
+          <p>Escolheu um lado sem saber se estava lendo alguma coisa.</p>
+        </div>
+        <div class="pain-card card">
+          <span class="icon">👀</span>
+          <h3>Sentiu a pressão?</h3>
+          <p>Na decisão, o time inteiro olha para você.</p>
+        </div>
+      </div>
+
+      <p class="pain-impact">A maioria dos goleiros não precisa de mais sorte. <b>Precisa treinar pênalti do jeito certo.</b></p>
+      
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO PARAR DE IR NO CHUTE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3 — PARA QUEM É -->
+  <section class="section-alt">
+    <div class="wrap">
+      <span class="kicker">ESSE TREINAMENTO É PARA VOCÊ SE...</span>
+      <h2 class="title">VOCÊ QUER SER MAIS DECISIVO NA HORA DOS PÊNALTIS.</h2>
+      
+      <ul class="id-list">
+        <li class="id-item"><span class="check">✓</span> Joga campo, futsal, society ou várzea</li>
+        <li class="id-item"><span class="check">✓</span> Quer parar de depender só da sorte</li>
+        <li class="id-item"><span class="check">✓</span> Quer melhorar sua leitura do batedor</li>
+        <li class="id-item"><span class="check">✓</span> Quer treinar pênalti de forma prática</li>
+        <li class="id-item"><span class="check">✓</span> Quer chegar mais confiante na cobrança</li>
+        <li class="id-item"><span class="check">✓</span> Já saiu de um jogo pensando: “eu podia ter pego”</li>
+        <li class="id-item"><span class="check">✓</span> Quer parar de cair cedo demais</li>
+        <li class="id-item"><span class="check">✓</span> Quer ser lembrado pelas defesas, não pelos erros</li>
+      </ul>
+
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO SER MAIS DECISIVO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4 — QUEBRA DE CRENÇA -->
+  <section>
+    <div class="wrap">
+      <span class="kicker">PÊNALTI É SORTE MESMO?</span>
+      <h2 class="title">PÊNALTI NÃO É LOTERIA PARA QUEM TREINA DO JEITO CERTO.</h2>
+      <p class="lede">Você não controla 100% da cobrança. Mas pode parar de entrar perdido, sem leitura e sem saber onde olhar.</p>
+
+      <div class="belief-grid">
+        <div class="belief-col adivinha">
+          <h3>❌ GOLEIRO QUE ADIVINHA</h3>
+          <ul class="belief-list">
+            <li>❌ Escolhe um canto no chute</li>
+            <li>❌ Cai antes da hora</li>
+            <li>❌ Depende só do instinto</li>
+          </ul>
+        </div>
+        <div class="belief-col treina">
+          <h3>✅ GOLEIRO QUE TREINA</h3>
+          <ul class="belief-list">
+            <li>✅ Observa melhor o batedor</li>
+            <li>✅ Trabalha reação e posicionamento</li>
+            <li>✅ Entra mais preparado na cobrança</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="belief-final">Sorte ajuda. <b>Mas treino coloca você muito à frente de quem só fecha os olhos e pula.</b></p>
+      
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO TREINAR DO JEITO CERTO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5 — O QUE VOCÊ VAI RECEBER -->
+  <section class="section-alt" id="receber">
+    <div class="wrap">
+      <span class="kicker">CONTEÚDO DO TREINAMENTO</span>
+      <h2 class="title">O QUE VOCÊ VAI RECEBER</h2>
+      <p class="lede">Treinos práticos estruturados para goleiros de campo, futsal, society e várzea. Você terá acesso imediato a todas as orientações para parar de ir no chute.</p>
+    </div>
+
+    <div class="carousel-wrapper" style="margin: 20px 0;">
+      <div class="carousel-track-wrapper">
+        <div class="carousel-right-to-left">
+          <!-- Item 1 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 1]</span>
+              <p class="placeholder-caption">Leitura de Pé de Apoio</p>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 2]</span>
+              <p class="placeholder-caption">Exercícios de Reação</p>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 3]</span>
+              <p class="placeholder-caption">Plano de 7 Dias</p>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 4]</span>
+              <p class="placeholder-caption">Posicionamento de Trave</p>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 5]</span>
+              <p class="placeholder-caption">Guia Mental Decisivo</p>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 6]</span>
+              <p class="placeholder-caption">Impulsão e Explosão</p>
+            </div>
+          </div>
+
+          <!-- DUPLICATED FOR INFINITE LOOP -->
+          
+          <!-- Item 1 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 1]</span>
+              <p class="placeholder-caption">Leitura de Pé de Apoio</p>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 2]</span>
+              <p class="placeholder-caption">Exercícios de Reação</p>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 3]</span>
+              <p class="placeholder-caption">Plano de 7 Dias</p>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 4]</span>
+              <p class="placeholder-caption">Posicionamento de Trave</p>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 5]</span>
+              <p class="placeholder-caption">Guia Mental Decisivo</p>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div class="story-card">
+            <div class="story-header">
+              <div class="story-progress-bar"><div class="story-progress-fill"></div></div>
+              <div class="story-profile">
+                <div class="story-avatar">⚽</div>
+                <div class="story-username">metodoparedao</div>
+                <div class="story-time">12h</div>
+              </div>
+            </div>
+            <div class="story-content-placeholder">
+              <span class="placeholder-icon">📱</span>
+              <span class="placeholder-text">[IMAGEM STORY 6]</span>
+              <p class="placeholder-caption">Impulsão e Explosão</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="section-cta-wrapper" style="margin-top: 20px;">
+        <a href="#planos" class="cta-button">VER PLANOS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6 — BENEFÍCIOS -->
+  <section>
+    <div class="wrap">
+      <span class="kicker">O QUE MUDA NO SEU JOGO</span>
+      <h2 class="title">ENTRE NA COBRANÇA MAIS PREPARADO.</h2>
+      
+      <ul class="id-list">
+        <li class="id-item"><span class="check">✓</span> Pare de escolher canto no desespero</li>
+        <li class="id-item"><span class="check">✓</span> Melhore sua leitura antes da batida</li>
+        <li class="id-item"><span class="check">✓</span> Treine reação e explosão lateral</li>
+        <li class="id-item"><span class="check">✓</span> Aprenda a não cair cedo demais</li>
+        <li class="id-item"><span class="check">✓</span> Chegue mais confiante em decisões</li>
+        <li class="id-item"><span class="check">✓</span> Passe mais segurança para o time</li>
+        <li class="id-item"><span class="check">✓</span> Prepare-se melhor para finais e mata-mata</li>
+        <li class="id-item"><span class="check">✓</span> Aumente suas chances de pegar mais pênaltis</li>
+      </ul>
+
+      <p class="pain-impact" style="border-left-color: var(--green); background: rgba(34, 197, 94, 0.02)">O goleiro que treina pênalti entra diferente. <b>Ele entra preparado.</b></p>
+      
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO ENTRAR PREPARADO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 7 — O QUE OBSERVAR NO PÊNALTI -->
+  <section class="section-alt">
+    <div class="wrap">
+      <span class="kicker">PARE DE IR NO ESCURO</span>
+      <h2 class="title">ANTES DA BOLA SAIR, O BATEDOR JÁ PODE DAR SINAIS.</h2>
+      <p class="lede">Se você não sabe onde olhar, tudo parece sorte.</p>
+
+      <div class="observe-grid">
+        <div class="observe-col">
+          <h3 class="obs-title">🟡 OBSERVE:</h3>
+          <ul class="observe-list">
+            <li>🟡 Corrida</li>
+            <li>🟡 Pé de apoio</li>
+            <li>🟡 Quadril</li>
+            <li>🟡 Ritmo da passada</li>
+            <li>🟡 Abertura do corpo</li>
+            <li>🟡 Comportamento antes da batida</li>
+          </ul>
+        </div>
+        <div class="observe-col">
+          <h3 class="evt-title">🟡 EVITE:</h3>
+          <ul class="observe-list">
+            <li>🟡 Cair cedo demais</li>
+            <li>🟡 Tomar no meio</li>
+            <li>🟡 Ir no chute</li>
+            <li>🟡 Reagir atrasado</li>
+            <li>🟡 Repetir o mesmo erro</li>
+            <li>🟡 Entrar nervoso</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO APRENDER A OBSERVAR</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 8 — BÔNUS PREMIUM -->
+  <section>
+    <div class="wrap">
+      <span class="kicker">EXCLUSIVO DO PLANO PREMIUM</span>
+      <h2 class="title">NO PREMIUM, VOCÊ LEVA OS BÔNUS SEM PAGAR NADA A MAIS.</h2>
+      <p class="lede">Além de liberar mais de 150 treinos, o plano premium inclui bônus para deixar sua preparação mais completa.</p>
+
+      <div class="bonus-list">
+        <!-- Bonus 1 -->
+        <div class="bonus-line">
+          <div class="bonus-line-left">
+            <span class="bonus-line-icon">🎁</span>
+            <div class="bonus-line-text">
+              <h4>BÔNUS 1 — Checklist do Batedor</h4>
+              <p>O que observar antes da cobrança para parar de ir no escuro.</p>
+            </div>
+          </div>
+          <div class="bonus-line-right">De <span class="strike">R$34</span> por <b>R$0 no Premium</b></div>
+        </div>
+
+        <!-- Bonus 2 -->
+        <div class="bonus-line">
+          <div class="bonus-line-left">
+            <span class="bonus-line-icon">🎁</span>
+            <div class="bonus-line-text">
+              <h4>BÔNUS 2 — Guia Mental do Goleiro Decisivo</h4>
+              <p>Rotina simples para entrar mais focado e confiante na cobrança.</p>
+            </div>
+          </div>
+          <div class="bonus-line-right">De <span class="strike">R$34</span> por <b>R$0 no Premium</b></div>
+        </div>
+
+        <!-- Bonus 3 -->
+        <div class="bonus-line">
+          <div class="bonus-line-left">
+            <span class="bonus-line-icon">🎁</span>
+            <div class="bonus-line-text">
+              <h4>BÔNUS 3 — Treinos Extras de Reação</h4>
+              <p>Exercícios para trabalhar resposta, explosão e movimento rápido.</p>
+            </div>
+          </div>
+          <div class="bonus-line-right">De <span class="strike">R$34</span> por <b>R$0 no Premium</b></div>
+        </div>
+
+        <!-- Bonus 4 -->
+        <div class="bonus-line">
+          <div class="bonus-line-left">
+            <span class="bonus-line-icon">🎁</span>
+            <div class="bonus-line-text">
+              <h4>BÔNUS 4 — Estratégias Para Não Cair Cedo Demais</h4>
+              <p>Ajustes práticos para não se vender antes da batida.</p>
+            </div>
+          </div>
+          <div class="bonus-line-right">De <span class="strike">R$34</span> por <b>R$0 no Premium</b></div>
+        </div>
+      </div>
+
+      <p class="bonus-value-total">Só os bônus somam R$136 em valor percebido. <b>No Premium, você recebe tudo incluso.</b></p>
+
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO O PREMIUM COM BÔNUS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 9 — FEEDBACKS / PROVA SOCIAL (MANDATÓRIO LEFT-TO-RIGHT) -->
+  <section class="section-alt" id="depoimentos">
+    <div class="wrap">
+      <span class="kicker">GOLEIROS QUE SAÍRAM DO CHUTE</span>
+      <h2 class="title">TREINAR PÊNALTI MUDA A FORMA COMO VOCÊ ENTRA NA COBRANÇA.</h2>
+      <p class="lede">Veja alguns feedbacks de goleiros que começaram a treinar com mais direção.</p>
+    </div>
+
+    <!-- Scroll Marquee Track left-to-right -->
+    <div class="carousel-wrapper" style="margin: 20px 0;">
+      <div class="carousel-track-wrapper">
+        <div class="carousel-left-to-right">
+          <!-- 1 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Mateus — SP</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Eu caía muito cedo. Depois dos treinos, comecei a esperar melhor a batida.”</p>
+          </div>
+          <!-- 2 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Rafael — RJ</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Antes eu só escolhia um canto. Agora presto mais atenção no batedor.”</p>
+          </div>
+          <!-- 3 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">João Pedro — MG</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Gostei porque é direto. Dá para aplicar no treino sem complicação.”</p>
+          </div>
+          <!-- 4 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Lucas — PR</span>
+              <span class="feedback-role">Goleiro de várzea</span>
+            </div>
+            <p class="feedback-text">“Me ajudou a entrar mais confiante nas disputas de pênalti.”</p>
+          </div>
+          <!-- 5 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Henrique — RS</span>
+              <span class="feedback-role">Goleiro amador</span>
+            </div>
+            <p class="feedback-text">“Eu tomava muito gol no meio. Agora estou mais ligado para não cair antes.”</p>
+          </div>
+          <!-- 6 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Vinícius — BA</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Os treinos de reação são simples e ajudam bastante na prática.”</p>
+          </div>
+          <!-- 7 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Caio — SC</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Treino curto, direto e fácil de entender. Era isso que eu procurava.”</p>
+          </div>
+          <!-- 8 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Gabriel — PE</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Comecei a observar mais a corrida e o pé de apoio do batedor.”</p>
+          </div>
+          <!-- 9 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Bruno — GO</span>
+              <span class="feedback-role">Goleiro de fut7</span>
+            </div>
+            <p class="feedback-text">“Na várzea a pressão é grande. Esse material ajuda a entrar mais preparado.”</p>
+          </div>
+          <!-- 10 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Felipe — CE</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Gostei da parte de não cair cedo. Era um erro que eu repetia muito.”</p>
+          </div>
+          <!-- 11 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">André — ES</span>
+              <span class="feedback-role">Goleiro amador</span>
+            </div>
+            <p class="feedback-text">“Parece simples, mas muda a forma como você encara a cobrança.”</p>
+          </div>
+          <!-- 12 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Thiago — MT</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Eu jogava no instinto. Agora treino com mais direção.”</p>
+          </div>
+          <!-- 13 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Murilo — DF</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Os treinos ajudam a ter mais presença e confiança no gol.”</p>
+          </div>
+          <!-- 14 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Diego — PA</span>
+              <span class="feedback-role">Goleiro de várzea</span>
+            </div>
+            <p class="feedback-text">“Na disputa, só de entrar mais calmo já muda muita coisa.”</p>
+          </div>
+          <!-- 15 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Eduardo — AM</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Conteúdo prático, sem enrolação e focado no que o goleiro precisa.”</p>
+          </div>
+
+          <!-- DUPLICATED FOR INFINITE LOOP -->
+
+          <!-- 1 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Mateus — SP</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Eu caía muito cedo. Depois dos treinos, comecei a esperar melhor a batida.”</p>
+          </div>
+          <!-- 2 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Rafael — RJ</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Antes eu só escolhia um canto. Agora presto mais atenção no batedor.”</p>
+          </div>
+          <!-- 3 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">João Pedro — MG</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Gostei porque é direto. Dá para aplicar no treino sem complicação.”</p>
+          </div>
+          <!-- 4 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Lucas — PR</span>
+              <span class="feedback-role">Goleiro de várzea</span>
+            </div>
+            <p class="feedback-text">“Me ajudou a entrar mais confiante nas disputas de pênalti.”</p>
+          </div>
+          <!-- 5 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Henrique — RS</span>
+              <span class="feedback-role">Goleiro amador</span>
+            </div>
+            <p class="feedback-text">“Eu tomava muito gol no meio. Agora estou mais ligado para não cair antes.”</p>
+          </div>
+          <!-- 6 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Vinícius — BA</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Os treinos de reação são simples e ajudam bastante na prática.”</p>
+          </div>
+          <!-- 7 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Caio — SC</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Treino curto, direto e fácil de entender. Era isso que eu procurava.”</p>
+          </div>
+          <!-- 8 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Gabriel — PE</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Comecei a observar mais a corrida e o pé de apoio do batedor.”</p>
+          </div>
+          <!-- 9 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Bruno — GO</span>
+              <span class="feedback-role">Goleiro de fut7</span>
+            </div>
+            <p class="feedback-text">“Na várzea a pressão é grande. Esse material ajuda a entrar mais preparado.”</p>
+          </div>
+          <!-- 10 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Felipe — CE</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Gostei da parte de não cair cedo. Era um erro que eu repetia muito.”</p>
+          </div>
+          <!-- 11 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">André — ES</span>
+              <span class="feedback-role">Goleiro amador</span>
+            </div>
+            <p class="feedback-text">“Parece simples, mas muda a forma como você encara a cobrança.”</p>
+          </div>
+          <!-- 12 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Thiago — MT</span>
+              <span class="feedback-role">Goleiro de society</span>
+            </div>
+            <p class="feedback-text">“Eu jogava no instinto. Agora treino com mais direção.”</p>
+          </div>
+          <!-- 13 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Murilo — DF</span>
+              <span class="feedback-role">Goleiro de campo</span>
+            </div>
+            <p class="feedback-text">“Os treinos ajudam a ter mais presença e confiança no gol.”</p>
+          </div>
+          <!-- 14 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Diego — PA</span>
+              <span class="feedback-role">Goleiro de várzea</span>
+            </div>
+            <p class="feedback-text">“Na disputa, só de entrar mais calmo já muda muita coisa.”</p>
+          </div>
+          <!-- 15 -->
+          <div class="feedback-item">
+            <div class="feedback-stars">★★★★★</div>
+            <div class="feedback-user-info">
+              <span class="feedback-name">Eduardo — AM</span>
+              <span class="feedback-role">Goleiro de futsal</span>
+            </div>
+            <p class="feedback-text">“Conteúdo prático, sem enrolação e focado no que o goleiro precisa.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">QUERO COMEÇAR AGORA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 10 — PLANOS -->
+  <section id="planos">
+    <div class="wrap">
+      <div class="pricing-intro" style="text-align: center; margin-bottom: 30px;">
+        <span class="kicker">ESCOLHA SEU ACESSO</span>
+        <h2 class="title">COMECE HOJE A TREINAR PARA PEGAR MAIS PÊNALTIS.</h2>
+        <p class="lede" style="margin: 0 auto;">Escolha seu plano e acesse imediatamente.</p>
+      </div>
+
+      <div class="plans-grid">
+        <!-- PLANO BÁSICO -->
+        <div class="plan-card">
+          <div class="plan-name">PLANO BÁSICO</div>
+          <div class="plan-price-row">
+            <span class="plan-price">R$9,90</span>
+            <small>pagamento único</small>
+          </div>
+          <p class="plan-desc">Para quem quer começar com os treinos principais.</p>
+          
+          <ul>
+            <li><span class="yes">✓</span> Acesso imediato</li>
+            <li><span class="yes">✓</span> 50 treinos de pênalti</li>
+            <li><span class="yes">✓</span> Treinos práticos e diretos</li>
+            <li><span class="yes">✓</span> Para campo, futsal, society e várzea</li>
+            <li class="no"><span class="no-mark">✗</span> Bônus premium</li>
+            <li class="no"><span class="no-mark">✗</span> Mais de 150 treinos</li>
+            <li class="no"><span class="no-mark">✗</span> Garantia premium</li>
+          </ul>
+
+          <a href="#" class="cta-button cta-button-secondary" style="width:100%; margin-top: auto;">ESCOLHER BÁSICO</a>
+        </div>
+
+        <!-- PLANO PREMIUM -->
+        <div class="plan-card premium-card">
+          <span class="badge-recommend">MAIS RECOMENDADO</span>
+          <div class="plan-name" style="margin-top: 10px;">PLANO PREMIUM</div>
+          <div class="plan-price-row">
+            <span class="plan-price">R$27,90</span>
+            <small>pagamento único · sem mensalidades</small>
+          </div>
+          <p class="plan-desc">A versão mais completa, com mais treinos, bônus e garantia.</p>
+          
+          <ul>
+            <li><span class="yes">✓</span> Acesso imediato</li>
+            <li><span class="yes">✓</span> Mais de 150 treinos para goleiro</li>
+            <li><span class="yes">✓</span> Treinos de pênalti completos</li>
+            <li><span class="yes">✓</span> Treinos de reação e explosão</li>
+            <li><span class="yes">✓</span> Aplicação para campo, futsal, society e várzea</li>
+            <li><span class="yes">✓</span> 4 bônus exclusivos</li>
+            <li><span class="yes">✓</span> Garantia de 7 dias</li>
+          </ul>
+
+          <div class="plan-premium-bonuses-title">BÔNUS PREMIUM INCLUSOS:</div>
+          <div class="plan-premium-bonuses">
+            <div>🎁 Checklist do Batedor — <b>de R$34 por R$0</b></div>
+            <div>🎁 Guia Mental do Goleiro Decisivo — <b>de R$34 por R$0</b></div>
+            <div>🎁 Treinos Extras de Reação — <b>de R$34 por R$0</b></div>
+            <div>🎁 Estratégias Para Não Cair Cedo Demais — <b>de R$34 por R$0</b></div>
+          </div>
+
+          <div class="plan-difference-text">O Premium entrega muito mais por uma diferença pequena.</div>
+          
+          <a href="#" class="cta-button" style="width:100%;">QUERO O PREMIUM POR R$27,90</a>
+        </div>
+      </div>
+
+      <p class="plans-bottom-text">Se quer só começar, escolha o Básico. • Se quer o pacote mais completo, escolha o Premium.</p>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 11 — GARANTIA -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="guarantee-box">
+        <span class="shield">🛡️</span>
+        <div>
+          <span class="kicker" style="margin-bottom: 4px;">COMPRA SEGURA</span>
+          <h3>GARANTIA DE 7 DIAS</h3>
+          <p>No plano premium, você tem 7 dias para acessar e testar o conteúdo. Se não for para você, pode solicitar reembolso dentro do prazo.</p>
+        </div>
+      </div>
+      
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">COMEÇAR COM GARANTIA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 12 — FAQ ENXUTO -->
+  <section>
+    <div class="wrap-narrow">
+      <span class="kicker">DÚVIDAS FREQUENTES</span>
+      <h2 class="title" style="text-align: center;">PERGUNTAS FREQUENTES</h2>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Isso serve para futsal, campo e society? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>Sim. Os treinos foram pensados para goleiros dessas modalidades, com adaptações de tempo de reação e posicionamento específicas para o tamanho de cada gol.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Sou goleiro amador. Serve para mim? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>Sim. O conteúdo é direto, prático e feito para aplicar mesmo sem estrutura profissional ou preparador específico. Qualquer colega de time pode chutar as bolas conforme as orientações.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Qual a diferença entre básico e premium? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>O Básico libera 50 treinos fundamentais para início imediato. O Premium libera mais de 150 treinos, os 4 bônus exclusivos de preparação mental e checklist, e conta com a garantia incondicional de 7 dias.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Os bônus estão no plano básico? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>Não. Os bônus exclusivos são disponibilizados apenas para assinantes do plano Premium.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">O acesso é imediato? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>Sim. Assim que a sua compra for confirmada pela plataforma de pagamentos, os dados de acesso são liberados imediatamente por e-mail.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">O premium vale mais a pena? <span class="plus">+</span></button>
+          <div class="faq-a">
+            <p>Sim. Pela diferença pequena de preço, ele entrega três vezes mais treinos (+150 treinos), 4 bônus completos de performance e a garantia exclusiva de satisfação.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-cta-wrapper">
+        <a href="#planos" class="cta-button">ESCOLHER MEU PLANO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 13 — CTA FINAL -->
+  <section class="final-cta">
+    <div class="wrap">
+      <span class="kicker">ÚLTIMA CHAMADA</span>
+      <h2 class="title">NA PRÓXIMA COBRANÇA, VOCÊ VAI ADIVINHAR O CANTO OU ENTRAR PREPARADO?</h2>
+      <p>Se você quer parar de depender só da sorte e começar a treinar pênalti do jeito certo, escolha seu plano agora.</p>
+      
+      <div class="final-cta-buttons">
+        <a href="#planos" class="cta-button">QUERO TREINAR PARA PEGAR MAIS PÊNALTIS</a>
+        <a href="#planos" class="cta-button cta-button-secondary">VER PLANOS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>Acesso imediato • Básico R$9,90 • Premium R$27,90</p>
+      <p class="footer-microcopy">© 2026 Método Paredão nos Pênaltis. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion logic
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
