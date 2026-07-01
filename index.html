@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Método Paredão nos Pênaltis — Pare de adivinhar o canto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="mockup.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -246,6 +248,7 @@
       width: 100%;
       max-width: 420px;
       height: auto;
+      aspect-ratio: 447/558;
       margin-bottom: 16px;
       filter: drop-shadow(0 15px 35px rgba(28, 70, 50, 0.25));
     }
@@ -417,6 +420,8 @@
       gap: 18px;
       width: max-content;
       animation: scroll-left 35s linear infinite;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
     }
 
     .carousel-left-to-right {
@@ -1118,7 +1123,7 @@
         <p class="hero-subtitle">Se hoje você escolhe um lado no chute e torce para dar certo, está na hora de treinar do jeito certo. Aprenda exercícios práticos para melhorar sua leitura do batedor, seu tempo de reação e sua presença na cobrança.</p>
       </div>
       <div class="hero-mockup-wrapper">
-        <img src="mockup.webp" alt="Método Paredão nos Pênaltis" class="hero-mockup">
+        <img src="mockup.webp" alt="Método Paredão nos Pênaltis" class="hero-mockup" width="447" height="558" fetchpriority="high" loading="eager">
         <a href="#planos" class="cta-button hero-cta">QUERO TREINAR PARA PEGAR MAIS PÊNALTIS</a>
         <div class="hero-microcopy">Acesso imediato • Planos a partir de R$9,90</div>
       </div>
@@ -1240,7 +1245,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image">
+            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Leitura de Pé de Apoio</div>
           </div>
           <!-- Item 2 -->
@@ -1253,7 +1258,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image">
+            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Exercícios de Reação</div>
           </div>
           <!-- Item 3 -->
@@ -1266,7 +1271,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image">
+            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Plano de 7 Dias</div>
           </div>
           <!-- Item 4 -->
@@ -1279,7 +1284,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image">
+            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Posicionamento de Trave</div>
           </div>
           <!-- Item 5 -->
@@ -1292,7 +1297,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image">
+            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Guia Mental Decisivo</div>
           </div>
           <!-- Item 6 -->
@@ -1305,7 +1310,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image">
+            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Impulsão e Explosão</div>
           </div>
           <!-- Item 7 -->
@@ -1318,7 +1323,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image">
+            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Leitura do Batedor</div>
           </div>
           <!-- Item 8 -->
@@ -1331,7 +1336,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image">
+            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Tempo de Reação</div>
           </div>
           <!-- Item 9 -->
@@ -1344,7 +1349,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image">
+            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Explosão Lateral</div>
           </div>
           <!-- Item 10 -->
@@ -1357,7 +1362,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image">
+            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Presença de Área</div>
           </div>
 
@@ -1373,7 +1378,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image">
+            <img src="./imagens-carrosel/img1.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura de Pé de Apoio" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Leitura de Pé de Apoio</div>
           </div>
           <!-- Item 2 -->
@@ -1386,7 +1391,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image">
+            <img src="./imagens-carrosel/img2.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Exercícios de Reação" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Exercícios de Reação</div>
           </div>
           <!-- Item 3 -->
@@ -1399,7 +1404,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image">
+            <img src="./imagens-carrosel/img3.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Plano de 7 Dias" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Plano de 7 Dias</div>
           </div>
           <!-- Item 4 -->
@@ -1412,7 +1417,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image">
+            <img src="./imagens-carrosel/img4.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Posicionamento de Trave" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Posicionamento de Trave</div>
           </div>
           <!-- Item 5 -->
@@ -1425,7 +1430,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image">
+            <img src="./imagens-carrosel/img5.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Guia Mental Decisivo" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Guia Mental Decisivo</div>
           </div>
           <!-- Item 6 -->
@@ -1438,7 +1443,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image">
+            <img src="./imagens-carrosel/img6.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Impulsão e Explosão" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Impulsão e Explosão</div>
           </div>
           <!-- Item 7 -->
@@ -1451,7 +1456,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image">
+            <img src="./imagens-carrosel/img7.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Leitura do Batedor" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Leitura do Batedor</div>
           </div>
           <!-- Item 8 -->
@@ -1464,7 +1469,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image">
+            <img src="./imagens-carrosel/img8.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Tempo de Reação" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Tempo de Reação</div>
           </div>
           <!-- Item 9 -->
@@ -1477,7 +1482,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image">
+            <img src="./imagens-carrosel/img9.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Explosão Lateral" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Explosão Lateral</div>
           </div>
           <!-- Item 10 -->
@@ -1490,7 +1495,7 @@
                 <div class="story-time">12h</div>
               </div>
             </div>
-            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image">
+            <img src="./imagens-carrosel/img10.webp" alt="Prévia do conteúdo do Método Paredão nos Pênaltis - Presença de Área" class="story-image" width="220" height="391" loading="lazy">
             <div class="story-overlay-caption">Presença de Área</div>
           </div>
         </div>
