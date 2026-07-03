@@ -14,6 +14,10 @@
     defer
   ></script>
 
+  <!-- Wistia Player Scripts -->
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/vi6q7io46b.js" async type="module"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="mockup.webp" fetchpriority="high">
@@ -237,24 +241,30 @@
       margin-bottom: 12px;
     }
 
-    /* Mockup Container */
-    .mockup-container {
+    /* VSL Player Container */
+    .video-vsl-wrapper {
       width: 100%;
-      max-width: 310px;
-      margin: 0 auto 24px;
-      border-radius: 36px;
-      border: 7px solid #283730;
-      box-shadow: var(--shadow-lg);
-      background: #000;
+      max-width: 320px;
+      margin: 0 auto 24px auto;
+      border-radius: 24px;
       overflow: hidden;
-      line-height: 0;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+      border: 6px solid #111;
+      background: #111;
       position: relative;
     }
 
-    .mockup-container img {
-      width: 100%;
-      height: auto;
+    .video-vsl-wrapper wistia-player {
       display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+    }
+
+    wistia-player[media-id='vi6q7io46b']:not(:defined) {
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/vi6q7io46b/swatch');
+      display: block;
+      filter: blur(5px);
+      padding-top: 177.78%;
     }
 
     /* Pain Section */
@@ -503,14 +513,21 @@
       margin-bottom: 30px;
     }
 
-    .bonus-image {
+    .bonus-card-image {
       width: 100%;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      border-radius: 10px;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-alt);
       margin-bottom: 14px;
       border: 1px solid var(--border);
-      background: var(--bg-alt);
+    }
+
+    .bonus-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .bonus-card {
@@ -968,6 +985,11 @@
         text-align: center;
         padding: 24px;
       }
+      .video-vsl-wrapper {
+        max-width: 280px;
+        border-radius: 22px;
+        margin-top: 18px;
+      }
     }
   </style>
   
@@ -1023,9 +1045,9 @@
         👇 VEJA O CONTEÚDO POR DENTRO 👇
       </div>
 
-      <!-- 6. Mockup central -->
-      <div class="mockup-container">
-        <img src="mockup.webp" alt="Pênalti Pronto Mockup" width="310" height="387" fetchpriority="high">
+      <!-- 6. Video VSL central -->
+      <div class="video-vsl-wrapper">
+        <wistia-player media-id="vi6q7io46b" aspect="0.5625"></wistia-player>
       </div>
 
       <!-- 7. Botão CTA -->
@@ -1455,7 +1477,9 @@
       <div class="bonus-grid">
         <!-- Bônus 1 -->
         <div class="bonus-card">
-          <img src="imagens-bonus/bonus1.webp" alt="Bônus Checklist do Batedor" class="bonus-image" loading="lazy" width="220" height="138">
+          <div class="bonus-card-image">
+            <img src="imagens-bonus/bonus1.webp" alt="Bônus Checklist do Batedor" loading="lazy" width="220" height="220">
+          </div>
           <span class="bonus-badge">Bônus 1</span>
           <h3 class="bonus-title">Checklist do Batedor</h3>
           <p class="bonus-desc">O que observar antes da cobrança para parar de ir no escuro.</p>
@@ -1466,7 +1490,9 @@
         </div>
         <!-- Bônus 2 -->
         <div class="bonus-card">
-          <img src="imagens-bonus/bonus2.webp" alt="Bônus Guia Mental do Goleiro Decisivo" class="bonus-image" loading="lazy" width="220" height="138">
+          <div class="bonus-card-image">
+            <img src="imagens-bonus/bonus2.webp" alt="Bônus Guia Mental do Goleiro Decisivo" loading="lazy" width="220" height="220">
+          </div>
           <span class="bonus-badge">Bônus 2</span>
           <h3 class="bonus-title">Guia Mental do Goleiro Decisivo</h3>
           <p class="bonus-desc">Rotina simples para entrar mais focado e confiante na cobrança.</p>
@@ -1477,7 +1503,9 @@
         </div>
         <!-- Bônus 3 -->
         <div class="bonus-card">
-          <img src="imagens-bonus/bonus3.webp" alt="Bônus Treinos Extras de Reação" class="bonus-image" loading="lazy" width="220" height="138">
+          <div class="bonus-card-image">
+            <img src="imagens-bonus/bonus3.webp" alt="Bônus Treinos Extras de Reação" loading="lazy" width="220" height="220">
+          </div>
           <span class="bonus-badge">Bônus 3</span>
           <h3 class="bonus-title">Treinos Extras de Reação</h3>
           <p class="bonus-desc">Exercícios para trabalhar resposta, explosão e movimento rápido.</p>
@@ -1488,7 +1516,9 @@
         </div>
         <!-- Bônus 4 -->
         <div class="bonus-card">
-          <img src="imagens-bonus/bonus4.webp" alt="Bônus Estratégias Para Não Cair Cedo Demais" class="bonus-image" loading="lazy" width="220" height="138">
+          <div class="bonus-card-image">
+            <img src="imagens-bonus/bonus4.webp" alt="Bônus Estratégias Para Não Cair Cedo Demais" loading="lazy" width="220" height="220">
+          </div>
           <span class="bonus-badge">Bônus 4</span>
           <h3 class="bonus-title">Estratégias Para Não Cair Cedo Demais</h3>
           <p class="bonus-desc">Ajustes práticos para não se vender antes da batida.</p>
